@@ -8,8 +8,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, Integer> {
 
-    void save(UserModel userModel);
-
     void delete(UserModel userModel);
+
+    void save(UserModel userModel);
 }
 

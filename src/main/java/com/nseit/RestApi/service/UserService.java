@@ -28,7 +28,7 @@ public class UserService {
 
     public void delete(int id) {
         for (UserModel userModel : userRepository.findAll()) {
-            if (id == userModel.getUserId())
+            if (id == userModel.getUserID())
                 userRepository.delete(userModel);
         }
 

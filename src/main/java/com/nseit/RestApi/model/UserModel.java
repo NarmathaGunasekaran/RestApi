@@ -3,6 +3,7 @@ package com.nseit.RestApi.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.data.convert.Jsr310Converters;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,12 +16,12 @@ public class UserModel {
 
     @Id
     @GeneratedValue
-    private Integer UserId;
+    private Integer UserID;
     private String Name;
-    private Integer DOB;
+    private String DOB;
     private String Education;
-    private Integer Email;
-    private long PhoneNumber;
+    private String Email;
+    private Long PhoneNumber;
     private String MaritalStatus;
-    private Integer UserRoleId;
+    private Integer UserRoleID;
 }
