@@ -1,15 +1,17 @@
 package com.nseit.RestApi.model;
 
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.convert.Jsr310Converters;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 @Entity
+//@Table(name = "users")
 @Data
 @AllArgsConstructor
 public class UserModel {

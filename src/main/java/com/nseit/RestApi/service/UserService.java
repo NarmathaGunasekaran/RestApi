@@ -15,7 +15,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public void add(UserModel userModel) {
-         userRepository.save(userModel);
+        userRepository.save(userModel);
     }
 
     public List<UserModel> view() {

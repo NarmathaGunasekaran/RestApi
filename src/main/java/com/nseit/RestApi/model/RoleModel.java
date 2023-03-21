@@ -1,9 +1,8 @@
 package com.nseit.RestApi.model;
 
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import javax.persistence.Id;
 
 @Data
 @AllArgsConstructor
