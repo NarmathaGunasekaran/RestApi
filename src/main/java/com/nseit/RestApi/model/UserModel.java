@@ -1,24 +1,23 @@
 package com.nseit.RestApi.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.data.convert.Jsr310Converters;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 
 @Entity
-//@Table(name = "users")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class UserModel {
 
     @Id
-    @GeneratedValue
-    private Integer UserID;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     private String Name;
     private String DOB;
     private String Education;
@@ -26,4 +25,8 @@ public class UserModel {
     private Long PhoneNumber;
     private String MaritalStatus;
     private Integer UserRoleID;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "Role_id", referencedColumnName = "id")
+    private RoleModel roleModel;
 }
