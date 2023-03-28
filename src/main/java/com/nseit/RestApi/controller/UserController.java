@@ -50,9 +50,9 @@ public class UserController {
         return userService.save(userModel).getId();
     }
 
-    @PutMapping
-    void update(@RequestBody UserModel userModel) {
-        userService.update(userModel);
+    @PutMapping("/{user_id}/teacher/{role_id}")
+    UserModel addRoleToUser(@PathVariable int user_id, @PathVariable int role_id) {
+        return userService.addRoleToUser(user_id, role_id);
     }
 
     @GetMapping
@@ -60,7 +60,6 @@ public class UserController {
         return userService.findAll();
     }
 
-    //    @Secured({Role.ROLE_ADMIN})
     @DeleteMapping("/{id}")
     public ResponseEntity<UserModel> deleteUserPost(@PathVariable Integer id) {
         userService.deleteUser(id);

@@ -6,7 +6,9 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Data
@@ -22,5 +24,8 @@ public class RoleModel {
 
     @JsonIgnore
     @OneToMany(mappedBy = "roleModel", cascade = CascadeType.REMOVE)
-    private List<UserModel> userModelList;
+    Set<UserModel> enrolledUser = new HashSet<>();
+
+    public static void setEnrolledUser(RoleModel roleModel) {
+    }
 }

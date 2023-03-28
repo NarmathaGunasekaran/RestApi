@@ -1,22 +1,24 @@
 package com.nseit.RestApi.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.Set;
 
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserModel {
+public class UserModel  {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
     private Integer id;
     private String Name;
     private String DOB;
@@ -26,7 +28,8 @@ public class UserModel {
     private String MaritalStatus;
     private Integer UserRoleID;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Role_id", referencedColumnName = "id")
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "role_id", referencedColumnName = "id")
     private RoleModel roleModel;
 }
